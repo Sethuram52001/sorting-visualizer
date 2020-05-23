@@ -1,9 +1,8 @@
 export function getquickSortAnimations(array) {
-  let animations = [];
-  let auxillaryArray = array.slice();
+  const animations = [];
+  const auxillaryArray = array.slice();
   quickSort(auxillaryArray, 0, auxillaryArray.length - 1, animations);
-  array = auxillaryArray;
-  return [animations, array];
+  return animations;
 }
 
 function quickSort(auxillaryArray, startIndex, endIndex, animations) {

@@ -43,13 +43,14 @@ class SortingVisualizer extends React.Component {
     this.setState({ array });
   }
 
-  /*sortedArray(animations) {
+  //needs testing
+  /* sortedArray(animations) {
     const sorted_array = this.state.array.slice().sort((a, b) => a - b);
     //sorted_array.sort();
     for (let i = 0; i < sorted_array.length; i++) {
       console.log(sorted_array[i]);
-    }*
-    for (let i = 0; i < animations.length; i++) {
+    }
+    for (let i = 0; i < sorted_array.length; i++) {
       if (animations[i] !== sorted_array[i]) {
         return false;
         break;
@@ -79,8 +80,16 @@ class SortingVisualizer extends React.Component {
           barOneStyle.height = `${newHeight}px`;
         }, i * ANIMATION_SPEED_MS);
       }
+      /* if (this.sortedArray(animations)) {
+        //const arrayBars = document.getElementsByClassName("array-bar");
+        // for (let i = 0; i < animations.length; i++) {
+        // arrayBars[i].style.backgroundColor = SORTED_COLOR;
+        //}
+        console.log(this.sortedArray(animations));
+      }
     }
-    // changing the colour once sorted
+    {
+      /* // changing the colour once sorted
     const sorted_array = this.state.array;
     //sorted_array.sort();
     const arrayBars = document.getElementsByClassName("array-bar");
@@ -89,7 +98,7 @@ class SortingVisualizer extends React.Component {
       arrayBars[i].style.backgroundColor = UNTOUCHED_COLOR;
     }
     {
-      /*//changing color once sorted
+      //changing color once sorted
     const sorted_array = this.state.array.slice().sort((a, b) => a - b);
     // if (animations[i] === sorted_array[i]) {
     // const arrayBars = document.getElementsByClassName("array-bar");
@@ -97,15 +106,16 @@ class SortingVisualizer extends React.Component {
       if (animations[i] === sorted_array[i]) {
         arrayBars.style.backgroundColor = SORTED_COLOR;
       }
+    }
     }*/
     }
   }
   bubbleSort() {
-    const [animations] = getbubbleSortAnimations(this.state.array);
+    const animations = getbubbleSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
       const isColorChange = i % 4 === 0 || i % 4 === 1;
       const arrayBars = document.getElementsByClassName("array-bar");
-      if (isColorChange === true) {
+      if (isColorChange) {
         const color = i % 4 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
         const [barOneIndex, barTwoIndex] = animations[i];
         const barOneStyle = arrayBars[barOneIndex].style;
@@ -128,7 +138,7 @@ class SortingVisualizer extends React.Component {
   }
 
   quickSort() {
-    const [animations] = getquickSortAnimations(this.state.array);
+    const animations = getquickSortAnimations(this.state.array);
     for (let i = 0; i < animations.length - 1; i++) {
       const isColorChange = i % 6 === 0 || i % 6 === 1;
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -162,13 +172,13 @@ class SortingVisualizer extends React.Component {
     }*/
   }
   insertionSort() {
-    const [animations] = getinsertionSortAnimations(this.state.array);
+    const animations = getinsertionSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
       const isColorChange =
         animations[i][0] === "comparision1" ||
         animations[i][0] === "comparision2";
       const arrayBars = document.getElementsByClassName("array-bar");
-      if (isColorChange === true) {
+      if (isColorChange) {
         const color =
           animations[i][0] === "comparision1" ? SECONDARY_COLOR : PRIMARY_COLOR;
         const [temp, barOneIndex, barTwoIndex] = animations[i];
@@ -216,7 +226,9 @@ class SortingVisualizer extends React.Component {
         <button className="btn-insertion" onClick={() => this.insertionSort()}>
           Insertion Sort
         </button>
-        {/*<button onClick={() => this.sortedArray()}>console</button>*/}
+        <button className="btn-insertion" onClick={() => this.sortedArray()}>
+          console
+        </button>
         {/*</div>*/}
       </div>
     );
