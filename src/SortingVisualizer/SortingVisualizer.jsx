@@ -210,26 +210,29 @@ class SortingVisualizer extends React.Component {
             style={{ backgroundColor: PRIMARY_COLOR, height: `${value}px` }}
           ></div>
         ))}
-        {/*<div className="button">*/}
-        <button className="btn-reset" onClick={() => this.resetArray()}>
-          Generate New Array
-        </button>
-        <button className="btn-merge" onClick={() => this.mergeSort()}>
-          Merge Sort
-        </button>
-        <button className="btn-bubble" onClick={() => this.bubbleSort()}>
-          Bubble Sort
-        </button>
-        <button className="btn-quick" onClick={() => this.quickSort()}>
-          Quick Sort
-        </button>
-        <button className="btn-insertion" onClick={() => this.insertionSort()}>
-          Insertion Sort
-        </button>
-        <button className="btn-insertion" onClick={() => this.sortedArray()}>
-          console
-        </button>
-        {/*</div>*/}
+        <div className="buttons">
+          <button className="btn-reset" onClick={() => this.resetArray()}>
+            Generate New Array
+          </button>
+          <button className="btn-merge" onClick={() => this.mergeSort()}>
+            Merge Sort
+          </button>
+          <button className="btn-bubble" onClick={() => this.bubbleSort()}>
+            Bubble Sort
+          </button>
+          <button className="btn-quick" onClick={() => this.quickSort()}>
+            Quick Sort
+          </button>
+          <button
+            className="btn-insertion"
+            onClick={() => this.insertionSort()}
+          >
+            Insertion Sort
+          </button>
+          <button className="btn-insertion" onClick={() => this.sortedArray()}>
+            console
+          </button>
+        </div>
       </div>
     );
   }

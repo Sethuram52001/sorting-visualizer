@@ -1,5 +1,5 @@
 .array-container {
-  position: absolute;
+  position: relative;
   left: 20px;
   /*top: 50vh;*/
 }
@@ -57,4 +57,10 @@
   font-weight: bold;
 }
 
-/**/
+.buttons {
+  background-color: lavender;
+}
+
+.buttons button:hover {
+  background-color: rgb(226, 97, 97);
+}
