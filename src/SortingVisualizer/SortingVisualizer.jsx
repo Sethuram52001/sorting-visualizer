@@ -241,8 +241,8 @@ class SortingVisualizer extends React.Component {
         <div className="heading">
           <h1>Sorting Visualizer</h1>
         </div>
-        <div className="row">
-          <div className="buttons col-auto" style={{width:"200px"}}>
+        <div style={{display:'flex',justifyContents:'between'}}>
+          <div className="buttons" style={{width:"200px"}}>
             <button
               title="Generates a new random array"
               style={{
@@ -299,7 +299,7 @@ class SortingVisualizer extends React.Component {
               Insertion Sort
             </button>
           </div>
-        <div className="array-container col-auto">
+        <div className="array-container">
           {array.map((value, idx) => (
             <div
               className="array-bar"
