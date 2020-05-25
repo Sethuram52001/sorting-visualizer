@@ -13,7 +13,7 @@ let WINDOW_HEIGHT = window.innerHeight;
 const ANIMATION_SPEED_MS = 2;
 
 //change this value for the number of bars (value) in the array
-const NUMBER_OF_ARRAY_BARS = 160;
+const NUMBER_OF_ARRAY_BARS = 150;
 
 //change this main color of array bars
 const PRIMARY_COLOR = "turquoise";
@@ -241,11 +241,15 @@ class SortingVisualizer extends React.Component {
         <div className="heading">
           <h1>Sorting Visualizer</h1>
         </div>
-        <div
-          className="nav"
-          style={{ display: "flex", justifyContents: "between" }}
-        >
-          <div className="buttons" style={{ width: "200px" }}>
+        <div className="array-container">
+          {array.map((value, idx) => (
+            <div
+              className="array-bar"
+              key={idx}
+              style={{ backgroundColor: PRIMARY_COLOR, height: `${value}px` }}
+            ></div>
+          ))}
+          <div className="buttons">
             <button
               title="Generates a new random array"
               style={{
@@ -262,7 +266,7 @@ class SortingVisualizer extends React.Component {
               id="mergeSort"
               style={{
                 position: "relative",
-                top: `${(0.75 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(0.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.mergeSort()}
             >
@@ -284,7 +288,7 @@ class SortingVisualizer extends React.Component {
               id="bubbleSort"
               style={{
                 position: "relative",
-                top: `${(2.25 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(2.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.bubbleSort()}
             >
@@ -295,33 +299,28 @@ class SortingVisualizer extends React.Component {
               id="insertionSort"
               style={{
                 position: "relative",
-                top: `${(3 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(3.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.insertionSort()}
             >
               Insertion Sort
             </button>
           </div>
-          <div className="array-container">
-            {array.map((value, idx) => (
-              <div
-                className="array-bar"
-                key={idx}
-                style={{ backgroundColor: PRIMARY_COLOR, height: `${value}px` }}
-              ></div>
-            ))}
-          </div>
         </div>
       </>
     );
   }
+
   //credits stack overflow
   randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }
+
 export default SortingVisualizer;
+
 //need to be checked
+
 /*function arraysAreEqual(arrayOne,arrayTwo)
 {
     if(arrayOne.lenght !== arrayTwo.lenght)
