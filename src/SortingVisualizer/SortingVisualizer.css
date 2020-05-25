@@ -1,66 +1,48 @@
 .array-container {
   position: relative;
-  left: 20px;
-  /*top: 50vh;*/
+  bottom: 0px;
 }
 
 .array-bar {
-  width: 2px;
-  height: 30px;
-  background-color: turquoise;
-  display: inline-block;
-  margin: 0 1px;
+  width: 3px;
+  display: inline-block; /* arranges the array bars in horizontal way*/
+  margin: 0 2px; /*Top,Bottom -> 0px Left,Right -> 1px*/
+}
+
+.buttons button {
+  background-color: rgb(20, 224, 20);
+  border: none;
+  color: #eaf0f1;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: 0;
+  display: block; /* Make the buttons appear below each other */
+  font: 15px "Century Gothic", Futura, sans-serif;
+  border-radius: 10px;
+  padding: 10px;
+}
+.buttons button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
 }
 
 .btn-reset {
-  padding: 10px;
-  margin: 15px;
-  background-color: rgb(233, 132, 16);
-  color: aliceblue;
-  border-radius: 15px;
-  font-weight: bold;
+  background-color: rgb(255, 169, 8);
 }
 
-.btn-merge {
-  padding: 10px;
-  margin: 15px;
-  background-color: yellowgreen;
-  color: aliceblue;
-  border-radius: 15px;
-  font-weight: bold;
+.heading {
+  background-color: black;
+  color: whitesmoke;
+  margin-top: 0px;
+  padding: 5px;
 }
 
-.btn-bubble {
-  padding: 10px;
-  margin: 15px;
-  background-color: yellowgreen;
-  color: aliceblue;
-  border-radius: 15px;
-  font-weight: bold;
-}
+/*.buttons {
+  display: block;
+}*/
 
-.btn-quick {
-  padding: 10px;
-  margin: 15px;
-  background-color: yellowgreen;
-  color: aliceblue;
-  border-radius: 15px;
-  font-weight: bold;
-}
-
-.btn-insertion {
-  padding: 10px;
-  margin: 15px;
-  background-color: yellowgreen;
-  color: aliceblue;
-  border-radius: 15px;
-  font-weight: bold;
-}
-
-.buttons {
-  background-color: lavender;
-}
-
-.buttons button:hover {
-  background-color: rgb(226, 97, 97);
-}
+/* Add a background color on hover */
+/* .buttons button:hover {
+    background-color: #3e8e41;
+} */
