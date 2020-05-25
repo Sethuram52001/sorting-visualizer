@@ -82,26 +82,31 @@ class SortingVisualizer extends React.Component {
     document.getElementById("mergeSort").disabled = false;
     let buttonStyle = document.getElementById("mergeSort").style;
     document.getElementById("mergeSort").title = ENABLED_BUTTON.nlogn;
-    buttonStyle.background = "#14E014";
+    /*buttonStyle.background = "#14E014";*/
+    buttonStyle.background = "#F84949";
     buttonStyle.cursor = "pointer";
 
     document.getElementById("quickSort").disabled = false;
     buttonStyle = document.getElementById("quickSort").style;
     document.getElementById("quickSort").title = ENABLED_BUTTON.nSquare;
-    buttonStyle.background = "#14E014";
+    /*buttonStyle.background = "#14E014";*/
+    buttonStyle.background = "#F84949";
     buttonStyle.cursor = "pointer";
 
     document.getElementById("bubbleSort").disabled = false;
     buttonStyle = document.getElementById("bubbleSort").style;
     document.getElementById("bubbleSort").title = ENABLED_BUTTON.nSquare;
-    buttonStyle.background = "#14E014";
+    /*buttonStyle.background = "#14E014";*/
+    buttonStyle.background = "#F84949";
     buttonStyle.cursor = "pointer";
 
     document.getElementById("insertionSort").disabled = false;
     buttonStyle = document.getElementById("insertionSort").style;
     document.getElementById("insertionSort").title = ENABLED_BUTTON.nSquare;
-    buttonStyle.background = "#14E014";
+    /*buttonStyle.background = "#14E014";*/
+    buttonStyle.background = "#F84949";
     buttonStyle.cursor = "pointer";
+    /*buttonStyle.hover.backgroundColor = "#000";*/
   }
 
   mergeSort() {
@@ -269,7 +274,7 @@ class SortingVisualizer extends React.Component {
               Merge Sort
             </button>
             <button
-              title="O(N^2) Time Complexity"
+              title="O(NlogN) Time Complexity"
               id="quickSort"
               style={{
                 position: "relative",
@@ -280,7 +285,7 @@ class SortingVisualizer extends React.Component {
               Quick Sort
             </button>
             <button
-              title="O(N^2) Time Complexity"
+              title="O(NlogN) Time Complexity"
               id="bubbleSort"
               style={{
                 position: "relative",
