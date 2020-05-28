@@ -4,6 +4,8 @@ import { getMergeSortAnimations } from "../sortingAlgorithms/mergeSort";
 import { getinsertionSortAnimations } from "../sortingAlgorithms/insertionSort";
 import { getbubbleSortAnimations } from "../sortingAlgorithms/bubbleSort";
 import { getquickSortAnimations } from "../sortingAlgorithms/quickSort";
+import { getselectionSortAnimations } from "../sortingAlgorithms/selectionSort";
+import { getHeapSortAnimations } from "../sortingAlgorithms/heapSort";
 
 //Changing width,height accordingly with the browser
 let WINDOW_WIDTH = window.innerWidth;
@@ -203,6 +205,7 @@ class SortingVisualizer extends React.Component {
     );
     setTimeout(() => this.restoreStoreButtons(), RESTORE_TIME);
   }
+
   insertionSort() {
     this.disableSortButtons();
     const animations = getinsertionSortAnimations(this.state.array);
@@ -235,10 +238,64 @@ class SortingVisualizer extends React.Component {
     setTimeout(() => this.restoreStoreButtons(), RESTORE_TIME);
   }
 
+  selectionSort() {
+    const animations = getselectionSortAnimations(this.state.array);
+    for (let i = 0; i < animations.length; i++) {
+      const isColorChange =
+        animations[i][0] === "comparision1" ||
+        animations[i][0] === "comparision2";
+      const arrayBars = document.getElementsByClassName("array-bar");
+      if (isColorChange === true) {
+        const color =
+          animations[i][0] === "comparision1" ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const [temp, barOneIndex, barTwoIndex] = animations[i];
+        const barOneStyle = arrayBars[barOneIndex].style;
+        const barTwoStyle = arrayBars[barTwoIndex].style;
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * ANIMATION_SPEED_MS);
+      } else {
+        const [temp, barIndex, newHeight] = animations[i];
+        const barStyle = arrayBars[barIndex].style;
+        setTimeout(() => {
+          barStyle.height = `${newHeight}px`;
+        }, i * ANIMATION_SPEED_MS);
+      }
+    }
+  }
+
+  heapSort() {
+    const animations = getHeapSortAnimations(this.state.array);
+    for (let i = 0; i < animations.length; i++) {
+      const isColorChange =
+        animations[i][0] === "comparision1" ||
+        animations[i][0] === "comparision2";
+      const arrayBars = document.getElementsByClassName("array-bar");
+      if (isColorChange === true) {
+        const color =
+          animations[i][0] === "comparision1" ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const [temp, barOneIndex, barTwoIndex] = animations[i];
+        const barOneStyle = arrayBars[barOneIndex].style;
+        const barTwoStyle = arrayBars[barTwoIndex].style;
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * ANIMATION_SPEED_MS);
+      } else {
+        const [temp, barIndex, newHeight] = animations[i];
+        const barStyle = arrayBars[barIndex].style;
+        setTimeout(() => {
+          barStyle.height = `${newHeight}px`;
+        }, i * ANIMATION_SPEED_MS);
+      }
+    }
+  }
+
   render() {
     const { array } = this.state;
 
-    const SORT_BUTTONS = 4;
+    const SORT_BUTTONS = 6;
     const TOTAL_BUTTONS = 1 + SORT_BUTTONS;
 
     return (
@@ -267,7 +324,7 @@ class SortingVisualizer extends React.Component {
               id="mergeSort"
               style={{
                 position: "relative",
-                top: `${(0.75 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(0.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.mergeSort()}
             >
@@ -278,7 +335,7 @@ class SortingVisualizer extends React.Component {
               id="quickSort"
               style={{
                 position: "relative",
-                top: `${(1.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(1 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.quickSort()}
             >
@@ -289,7 +346,7 @@ class SortingVisualizer extends React.Component {
               id="bubbleSort"
               style={{
                 position: "relative",
-                top: `${(2.25 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(1.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.bubbleSort()}
             >
@@ -300,11 +357,29 @@ class SortingVisualizer extends React.Component {
               id="insertionSort"
               style={{
                 position: "relative",
-                top: `${(3 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+                top: `${(2 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
               }}
               onClick={() => this.insertionSort()}
             >
               Insertion Sort
+            </button>
+            <button
+              style={{
+                position: "relative",
+                top: `${(2.5 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+              }}
+              onClick={() => this.selectionSort()}
+            >
+              Selection Sort
+            </button>
+            <button
+              style={{
+                position: "relative",
+                top: `${(3 * (WINDOW_HEIGHT - 20)) / TOTAL_BUTTONS}px`,
+              }}
+              onClick={() => this.heapSort()}
+            >
+              Heap Sort
             </button>
           </div>
           <div className="array-container">
